@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Корзина</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/cart.css" th:href="@{/css/cart.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+			<h3>Действия</h3>
+
+			<form th:action="@{/cart/order}" th:method="GET">
+				<input type="submit" value="Оформить заказ">
+			</form>
+
+			<form th:action="@{/cart/clean}" th:method="GET">
+				<input type="submit" value="Очистить корзину">
+			</form>
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Корзина</h1>
+
+			<div class="cart">
+				<div th:each="product : ${products}">
+					<img th:src="@{'/images/' + ${product.fileName}}" width="256px">
+					<p><a th:href="@{/products/{id}(id=${product.id})}" th:text="${product.title}">Товар</a></p>
+					<p th:text="${product.price} + ' руб.'">Цена</p>
+
+					<form th:action="@{/cart/{id}(id=${product.id})}" th:method="DELETE">
+						<input type="submit" value="Удалить">
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

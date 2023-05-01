@@ -1,0 +1,38 @@
+form {
+    max-width: 40%;
+    margin: 3rem auto;
+    display: flex;
+    flex-flow: column;
+}
+
+form * {
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+form label[for=image] {
+    cursor: pointer;
+    width: 100%;
+}
+
+form img {
+    width: 100%;
+}
+
+#register_ask {
+    display: flex;
+    flex-flow: column;
+}
+
+#register_ask * {
+    margin-top: 1rem;
+}
+
+#register_ask *:first-child {
+    margin-top: 0;
+}
+
+#register_ask form {
+    margin: 1rem 0;
+    max-width: 100%;
+}

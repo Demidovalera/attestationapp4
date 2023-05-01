@@ -1,0 +1,26 @@
+.admin_user {
+    margin-top: 3rem;
+}
+
+.admin_user > * {
+    margin-bottom: 1rem;
+}
+
+.admin_user {
+    margin-bottom: 0;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.admin_user div {
+    display: flex;
+}
+
+.admin_user div select {
+    margin-left: 1rem;
+    background-color: #bd6800;
+    color: white;
+    border: none;
+    border-radius: .25rem;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:sec="http://www.springframework.org/security/tags">
+    <head>
+		<meta charset="UTF-8">
+        <title>Главная</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/base.css" th:href="@{/css/base.css}">
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/index.css" th:href="@{/css/index.css}">
+    </head>
+
+    <body>
+        <ul class="index-list">
+			<li><a th:href="@{/products}">Товары</a></li>
+			<li sec:authorize="isAnonymous()"><a th:href="@{/auth/login}">Вход</a></li>
+			<li sec:authorize="isAuthenticated()"><a th:href="@{/cart}">Корзина</a></li>
+			<li sec:authorize="isAuthenticated()"><a th:href="@{/orders}">Заказы</a></li>
+			<li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin/orders}">Все заказы</a></li>
+			<li sec:authorize="isAuthenticated()">
+				<form th:action="@{/logout}" th:method="POST">
+					<button type="submit">Выход</button>
+				</form>
+			</li>
+		</ul>
+    </body>
+</html>

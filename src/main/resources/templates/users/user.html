@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Информация о пользователе</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/user.css" th:href="@{/css/user.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+			
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Информация о пользователе</h1>
+
+			<form class="admin_user" th:action="@{/users/{id}(id=${user.id})}" th:method="PATCH">
+				<p th:text="'Идентификатор: ' + ${user.id}"></p>
+                <p th:text="'Имя пользователя: ' + ${user.username}"></p>
+                <div>
+                    <p>Роль:</p>
+                    <select name="role" id="role">
+                        <option th:value="ROLE_USER" th:text="пользователь" th:selected="${'ROLE_USER' == user.role}"></option>
+                        <option th:value="ROLE_ADMIN" th:text="администратор" th:selected="${'ROLE_ADMIN' == user.role}"></option>
+                    </select>
+                </div>
+                <input type="submit" value="Сохранить">
+			</form>
+		</div>
+	</body>
+</html>

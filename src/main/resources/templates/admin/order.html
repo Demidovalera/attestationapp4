@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Информация о заказе</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/orders.css" th:href="@{/css/orders.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Информация о заказе</h1>
+
+			<form class="admin_order" th:action="@{/admin/orders/{id}(id=${order.id})}" th:method="PATCH">
+				<p th:text="'Номер: ' + ${order.id}"></p>
+                <p><span th:text="'Заказчик: ' + ${order.userEntity.username}"></span></p>
+                <div>
+                    <p>Статус:</p>
+                    <select name="status" id="status">
+                        <option th:text="создан" th:selected="${'создан' == order.status}"></option>
+                        <option th:text="обработан" th:selected="${'обработан' == order.status}"></option>
+                        <option th:text="доставлен" th:selected="${'доставлен' == order.status}"></option>
+                        <option th:text="завершён" th:selected="${'завершён' == order.status}"></option>
+                    </select>
+                </div>
+                <ul>
+                    <li th:each="ordersProductsEntity : ${order.ordersProductsEntities}" th:text="${ordersProductsEntity.productEntity.title}"></li>
+                </ul>
+                <input type="submit" value="Сохранить">
+			</form>
+		</div>
+	</body>
+</html>

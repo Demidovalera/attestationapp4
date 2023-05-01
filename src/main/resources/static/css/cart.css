@@ -1,0 +1,10 @@
+.cart {
+    margin-top: 3rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.cart div {
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,31 @@
+.sidebar form {
+    display: flex;
+    flex-flow: column;
+}
+
+.sidebar form * {
+    margin-top: 1rem;
+}
+
+.sidebar form input {
+    border: 1px solid #bd6800;
+}
+
+.sidebar form *:first-child {
+    margin-top: 0;
+}
+
+.products {
+    margin-top: 3rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.products div {
+    margin-bottom: 2rem;
+}
+
+#add_product_admin {
+    margin-top: 2rem;
+}

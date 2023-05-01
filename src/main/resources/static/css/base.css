@@ -1,0 +1,140 @@
+html {
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    min-height: 100%;
+    grid-template-rows: 57px auto 57px;
+}
+
+button,
+input[type=submit] {
+    background-color: #bd6800;
+    border: none;
+    color: white;
+    border-radius: .25rem;
+}
+
+button:hover,
+input[type=submit]:hover {
+    background-color: #ff8c00;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+ul, p, h1 {
+    padding: 0;
+    margin: 0;
+}
+
+a:link {
+    text-decoration: none;
+    color: #bd6800;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #bd6800;
+}
+
+a:active {
+    color: #ff8c00;
+}
+
+header {
+    grid-row: 1;
+    background-color: #bd6800;
+}
+
+header button:hover {
+    background-color: initial;
+}
+
+header a:link,
+header a:visited {
+    color: white;
+}
+
+header a:active {
+    color: gainsboro;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+header li {
+    display: inline;
+    list-style: none;
+    margin-right: .25rem;
+}
+
+header li:nth-last-child(1) {
+    margin-right: 0;
+}
+
+header form {
+    display: inline;
+}
+
+header button {
+    background: inherit;
+    border: inherit;
+    padding: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+}
+
+header button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+header button:active {
+    color: gainsboro;
+}
+
+main {
+    display: grid;
+    margin: 3rem 20% 0;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-row: 2;
+    gap: 3rem;
+}
+
+footer {
+    color: white;
+    margin: 0 30%;
+    grid-row: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    background: #bd6800;
+}
+
+.sidebar {
+    margin-top: 5rem;
+    padding: 0 2rem;
+}
+
+ul ul {
+    padding-left: 1rem;
+}

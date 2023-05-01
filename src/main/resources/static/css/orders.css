@@ -1,0 +1,45 @@
+.orders,
+.admin_order {
+    margin-top: 3rem;
+}
+
+.orders ul ul,
+.admin_order > * {
+    margin-bottom: 1rem;
+}
+
+.admin_order {
+    margin-bottom: 0;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.admin_order div {
+    display: flex;
+}
+
+.admin_order div select {
+    margin-left: 1rem;
+    background-color: #bd6800;
+    color: white;
+    border: none;
+    border-radius: .25rem;
+}
+
+.sidebar form {
+    display: flex;
+    flex-flow: column;
+}
+
+.sidebar form * {
+    margin-top: 1rem;
+}
+
+.sidebar form input {
+    border: 1px solid #bd6800;
+}
+
+.sidebar form *:first-child {
+    margin-top: 0;
+}

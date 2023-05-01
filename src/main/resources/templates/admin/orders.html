@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Все заказы</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/orders.css" th:href="@{/css/orders.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+			<form id="search_form" th:action="@{/admin/orders}" th:method="GET">
+				<input type="text" id="search" name="search" placeholder="Номер заказа...">
+
+				<input type="submit" value="применить">
+			</form>
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Все заказы</h1>
+
+			<div class="orders">
+				<ul>
+                    <li th:each="order : ${orders}">
+                        <p><a th:href="@{/admin/orders/{id}(id=${order.id})}" th:text="${order.id}"></a><span th:text="' (' + ${#temporals.format(order.createdAt, 'dd-MM-yyyy HH:mm')} + ') [' + ${order.status} + '] (' + ${order.userEntity.username} + '):'"></p>
+
+                        <ul>
+                            <li th:each="ordersProductsEntity : ${order.ordersProductsEntities}" th:text="${ordersProductsEntity.productEntity.title}"></li>
+                        </ul>
+                    </li>
+                </ul>
+			</div>
+		</div>
+
+		<script layout:fragment="script">
+			var myForm = document.getElementById('search_form');
+
+			myForm.addEventListener('submit', function (e) {
+				var allInputs = myForm.getElementsByTagName('input');
+
+				for (var i = 0; i < allInputs.length; i++) {
+					var input = allInputs[i];
+
+					if (input.name && !input.value) {
+						input.removeAttribute('name');
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

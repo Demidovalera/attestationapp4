@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+		<meta charset="UTF-8">
+        <title layout:title-pattern="$CONTENT_TITLE"></title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/base.css" th:href="@{/css/base.css}">
+    </head>
+
+    <body>
+        <header th:replace="~{fragments/header :: header}">Шапка</header>
+
+		<main>
+			<div class="sidebar" layout:fragment="sidebar"></div>
+
+			<div layout:fragment="content"></div>
+		</main>
+
+        <footer th:replace="~{fragments/footer :: footer}">Подвал</footer>
+
+        <script layout:fragment="script"></script>
+    </body>
+</html>

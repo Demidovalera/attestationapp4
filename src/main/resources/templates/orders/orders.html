@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Заказы</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/orders.css" th:href="@{/css/orders.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Заказы</h1>
+
+			<div class="orders">
+				<ul>
+                    <li th:each="order : ${orders}">
+                        <p th:text="${order.id} + ' (' + ${#temporals.format(order.createdAt, 'dd-MM-yyyy HH:mm')} + ') [' + ${order.status} + ']:'"></p>
+
+                        <ul>
+                            <li th:each="ordersProductsEntity : ${order.ordersProductsEntities}" th:text="${ordersProductsEntity.productEntity.title}"></li>
+                        </ul>
+                    </li>
+                </ul>
+			</div>
+		</div>
+	</body>
+</html>

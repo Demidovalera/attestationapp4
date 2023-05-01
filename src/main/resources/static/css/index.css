@@ -1,0 +1,42 @@
+.index-list {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    list-style: none;
+}
+
+.index-list li {
+    display: inline;
+    border-right: 2px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.index-list li:nth-last-child(1) {
+    border-right: none;
+}
+
+.index-list form {
+    display: inline;
+}
+
+.index-list button {
+    background: inherit;
+    border: inherit;
+    padding: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    color: #bd6800;
+}
+
+.index-list button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.index-list button:active {
+    color: #ff8c00;
+}

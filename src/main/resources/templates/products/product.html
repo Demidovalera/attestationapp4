@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title th:text="${product.title}">Информация о товаре</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/product.css" th:href="@{/css/product.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+			
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Информация о товаре</h1>
+
+			<div class="product">
+				<img th:src="@{'/images/' + ${product.fileName}}" width="512px">
+	
+				<p th:text="${product.title}">Товар</p>
+				<p th:text="${product.price} + ' руб.'">Цена</p>
+
+				<div sec:authorize="isAuthenticated()">
+					<form th:unless="${is_present == true}" th:action="@{/products/{id}/add(id=${product.id})}" th:method="POST">
+						<input type="submit" value="Добавить в корзину">
+					</form>
+
+					<form sec:authorize="hasRole('ADMIN')" th:action="@{/products/{id}/edit(id=${product.id})}" th:method="GET">
+						<input type="submit" value="Редактировать товар (admin)">
+					</form>
+	
+					<form sec:authorize="hasRole('ADMIN')" th:action="@{/products/{id}(id=${product.id})}" th:method="DELETE">
+						<input type="submit" value="Удалить товар (admin)">
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Регистрация</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/auth.css" th:href="@{/css/auth.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+			
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Регистрация</h1>
+
+			<form class="auth" name="registration_form" th:action="@{/auth/register}" th:method="POST" th:object="${user}">
+				<label for="username">Имя пользователя:</label>
+				<input type="text" name="username" id="username" th:field="*{username}">
+				<span style="color: red" th:if="@{#fields.hasErrors('username')}" th:errors="*{username}">Ошибки в имени пользователя.</span>
+	
+				<label for="password">Пароль:</label>
+				<input type="password" name="password" id="password" th:field="*{password}">
+				<span style="color: red" th:if="@{#fields.hasErrors('password')}" th:errors="*{password}">Ошибки в пароле.</span>
+	
+				<label for="confirmed_password">Подтверждения пароля:</label>
+				<input type="password" name="confirmed_password" id="confirmed_password" th:field="*{confirmedPassword}">
+				<span style="color: red" th:if="@{#fields.hasErrors('confirmedPassword')}" th:errors="*{confirmedPassword}">Ошибки в подтверждении пароля.</span>
+	
+				<input type="submit" value="Зарегистрироваться">
+			</form>
+		</div>
+	</body>
+</html>

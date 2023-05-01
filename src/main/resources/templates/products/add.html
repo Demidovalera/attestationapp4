@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Добавить товар</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../../static/css/auth.css" th:href="@{/css/auth.css}">
+	</head>
+
+	<body>
+		<div layout:fragment="sidebar">
+			
+		</div>
+
+		<div layout:fragment="content">
+			<h1>Добавить товар</h1>
+
+			<form name="product_add_form" enctype="multipart/form-data" th:action="@{/products/add}" th:method="POST" th:object="${product}">
+				<label for="image">
+					<input type="file" name="image" id="image" style="display: none;" accept="image/png, image/jpeg" th:field="*{multipartFile}">
+					<img th:src="@{'/static_images/empty_product.jpg'}">
+				</label>
+				
+				<label for="title">Назавание товара:</label>
+				<input type="text" name="title" id="title" th:field="*{title}">
+				<span style="color: red" th:if="@{#fields.hasErrors('title')}" th:errors="*{title}">Ошибки в названии товара.</span>
+	
+				<label for="price">Цена:</label>
+				<input type="text" name="price" id="price" th:field="*{price}">
+				<span style="color: red" th:if="@{#fields.hasErrors('price')}" th:errors="*{price}">Ошибки в цене.</span>
+	
+				<input type="submit" value="Добавить">
+			</form>
+		</div>
+	</body>
+</html>
